@@ -448,3 +448,245 @@ node* removeAllAfter(node* &head)
     }
   return head;
 }
+
+// practice for dual credit
+
+//add new node to end w/ same value as first node
+void addNew(node* &head)
+{
+  node* newNode = new node();
+  int value = 0;
+  if (head!= NULL)
+    {
+      node* current = head;
+      node* previous;
+      
+      value = head->data;
+
+      while (current->next != NULL)
+	{
+	  previous = current;
+	  current = current->next;
+	}
+      
+      newNode->data = value;
+      current->next = newNode;
+      newNode->next = NULL;
+      
+    }
+  
+}
+
+void printEveryOther(node* &head)
+{
+
+  int counter = 0;
+  int number = 0;
+  if (head != NULL)
+    {
+      node* current = head;
+      node* print = head;
+      //node* previous;
+
+      //cout << head->data << endl;
+
+      while (current->next != NULL)
+	{
+	  //previous = current;
+	  current = current->next;
+	  counter = counter + 1;
+	}
+      counter = counter + 1;
+
+      cout << counter << endl;
+
+      for (int i = 0; i < counter; i = i + 2)
+	{
+	  if (print != NULL)
+	    {
+	      cout << print->data << endl;
+	      number++;
+	      if (print->next != NULL)
+		{
+		  if ((print->next)->next != NULL)
+		    {
+		      print = (print->next)->next;
+		    }
+		}
+	    }
+	  
+	}
+      cout << "print out "<< number << endl;
+    }
+  
+}
+
+void addSum(node* &head)
+{
+  int counter = 0;
+  node* sum = new node();
+  if (head != NULL)
+    {
+      node* current = head;
+      while (current->next != NULL)
+	{
+	  current = current->next;
+	  counter = counter + current->data;
+	}
+      counter = counter + 1;
+      sum->data = counter;
+      current->next = sum;
+      sum->next = NULL;
+    }
+}
+
+void removeFirstNum(node* &head)
+{
+  int num = 2;
+  if (head != NULL)
+    {
+      node* current = head;
+      node* previous;
+      if (head->data != 2)
+	{
+	  node* temp = head;
+	  head = head->next;
+	  delete temp;
+	}
+      else
+	{
+	  while (current->next != NULL)
+	    {
+	      if (current->data != 2)
+		{
+		  node* temp = current->next;
+		  previous->next = temp;
+		  delete current;
+		  break;
+		}
+	      else
+		{
+		  previous = current;
+		  current = current->next;
+		}
+	    }
+	  
+	}
+    }
+}
+
+void removeLast(node* &head)
+{
+  if (head != NULL)
+    {
+      node* current = head;
+      node* previous;
+      while (current->next != NULL)
+	{
+	  previous = current;
+	  current = current->next;
+	}
+      node* temp = current;
+      previous->next = NULL;
+      delete temp;
+    }
+  
+}
+
+void removeLastSame(node* &head)
+{
+  int value = head->data;
+  if (head != NULL)
+    {
+      node* current = head;
+      node* previous;
+
+      while (current->next != NULL)
+	{
+	  previous = current;
+	  current = current->next;
+	}
+      if (current->data != value)
+	{
+	  node* temp = current;
+	  previous->next = NULL;
+	  delete temp;
+	}
+      else
+	{
+	  cout << "Last node is same as the first" << endl;
+	}
+    }
+}
+
+void moveFirLast(node* &head)
+{
+  node* newLast = new node();
+  newLast->data = head->data;
+
+  if (head!= NULL)
+    {
+      node* temp = head;
+      head = head->next;
+      delete temp;
+
+      node* current = head;
+
+      while (current->next != NULL)
+	{
+	  current = current->next;
+	}
+      current->next = newLast;
+      newLast->next = NULL;
+      
+    }
+}
+
+void swapFLData(node* &head)
+{
+  int headData = head->data;
+  int lastData = 0;
+
+  if (head != NULL)
+    {
+      node* current = head;
+
+      while (current->next != NULL)
+	{
+	  current = current->next;
+	}
+      lastData = current->data;
+
+      head->data = lastData;
+      current->data = headData;
+
+    }
+  
+}
+
+node* swapFLNode(node* &head)
+{
+  node* newHead = new node();
+  node* newLast = new node();
+
+  if (head != NULL)
+    {
+      node* temp = head->next;
+      head->next = NULL;
+      newLast = head;
+      node* current = temp;
+      node* previous;
+
+      while (current->next != NULL)
+	{
+	  previous = current;
+	  current = current->next;
+	}
+      newHead = current;
+      newHead->next = temp;
+      previous->next = newLast;
+      newLast->next = NULL;
+      
+    }
+  return newHead;
+}

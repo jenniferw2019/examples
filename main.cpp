@@ -57,9 +57,38 @@ int main()
   //removeAfter2(head);
   //display_all(head);
 
-  removeAllAfter(head);
-  display_all(head);
+  //removeAllAfter(head);
+  //display_all(head);
 
+
+
+  
+  //addNew(head);
+  //display_all(head);
+
+  //printEveryOther(head);
+
+  //addSum(head);
+  //display_all(head);
+
+  //removeFirstNum(head);
+  //display_all(head);
+
+  //removeLast(head);
+  //display_all(head);
+
+  //removeLastSame(head);
+  //display_all(head);
+
+  //moveFirLast(head);
+  //display_all(head);
+
+  //swapFLData(head);
+  //display_all(head);
+
+  node* newH = new node();
+  newH = swapFLNode(head);
+  display_all(newH);
   /*
     head = new node();
     head->data = 1;

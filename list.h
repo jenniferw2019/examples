@@ -3,7 +3,7 @@
 #define LIST_H
 #include <iostream>
 #include <cctype>
-#include <cstdlib>
+//#include <cstdlib>
 using namespace std;
 
 struct node
@@ -27,6 +27,17 @@ node* copyAfter(node* &head);
 node* copyAfter2(node* &head);
 node* removeAfter2(node* &head);
 node* removeAllAfter(node* &head);
+
+//practice for dual credit
+void addNew(node* &head);
+void printEveryOther(node* &head);
+void addSum(node* &head);
+void removeFirstNum(node* &head);
+void removeLast(node* &head);
+void removeLastSame(node* &head);
+void moveFirLast(node* &head);
+void swapFLData(node* &head);
+node* swapFLNode(node* &head);
 
   /* These functions are already written and can be called to test out your code */
   void build(node * & head);      //supplied
